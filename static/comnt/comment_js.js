@@ -1,4 +1,9 @@
-$(document).ready(function(){
-  $('#title').focus();
-    $('#text').autosize();
-});
+window.onload=function(){
+  textarea = document.querySelector("#text");
+  textarea.addEventListener('input', autoResize, false);
+}
+
+function autoResize() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+}
