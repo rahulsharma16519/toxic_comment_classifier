@@ -1,14 +1,49 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>prediction_Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+    <!--Custom CSS and javascript-->
+
+    <link rel="stylesheet" href="{% static "comnt/base.css" %}"/>
+    <script type="text/javascript" src="{% static 'comnt/comment_js.js' %}"></script>
+
+    </script>
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <p>{{ predictions.uname }} , your comment is {{ predictions.result }}</p>
-      </div>
+      <nav class="navbar navbar-light bg-light" style ="background-image:url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png)">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'comnt/home.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      Home
+    </a>
+    <a class="navbar-brand" href="https://www.linkedin.com/in/rahul16519/">
+       <img src="{% static 'comnt/li.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      LinkedIn
+
+    </a>
+    <a class="navbar-brand" href="https://github.com/rahulsharma16519/toxic_comment_classifier">
+      <img src="{% static 'comnt/gh.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      Github
+    </a>
+  </nav>
+    <div id="wrapper">
+
+      <form id="paper" method="POST">
+
+        <textarea placeholder="{{ predictions.uname }} your comment is {{ predictions.result }}" id="text" name="inp_comment" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>
+
+      </form>
+
     </div>
   </body>
 </html>

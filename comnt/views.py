@@ -16,7 +16,7 @@ def index(request):
             uname = form.cleaned_data['uname']
             result = comment_prediction(comment)
             form.result = result
-            form.save(commit=True)
+            form.save(commit=False)
             op_dict = {
                 'uname' : uname,
                 'result' : result,
